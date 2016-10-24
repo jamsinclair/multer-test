@@ -1,0 +1,16 @@
+{
+  "name": "multer-test",
+  "version": "0.1.0",
+  "description": "Debugging a simple problem I am having with multer returning empty responses",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "jamsinclair <jamsinclairnz@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.14.0",
+    "multer": "^1.2.0"
+  },
+  "private": true
+}
