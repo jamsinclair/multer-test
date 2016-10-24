@@ -9,5 +9,5 @@ npm install && npm start
 - Sending POST request via an html form (navigate to http://localhost:9000 to submit form)
 
 ## :x: Multer does not work for me when:
-- Sending Data via POSTMAN and explicitly defining the `Content-Type` header
-- Sending Data manually via a node script. With the server running in another terminal run `node send-post.js`
+- Sending data via POSTMAN and explicitly defining the `Content-Type` header
+- Sending data manually via a node script. With the server running, in another terminal window run `node send-post.js`
