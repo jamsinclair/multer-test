@@ -8,7 +8,7 @@ app.get('/', function (req, res, next) {
   res.sendFile(path.resolve(__dirname, './index.html'));
 });
 
-app.post('/upload', upload.array(), function (req, res, next) {
+app.post('/upload', upload.any(), function (req, res, next) {
   console.log(req.headers)
   console.log('body data:', req.body);
   console.log('files data:', req.files);
