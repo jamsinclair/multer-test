@@ -1,3 +1,5 @@
+# Problem Now Resolved
+
 Debugging a simple problem I am having with [multer](https://github.com/expressjs/multer) returning empty request data
 
 To run the simple server:
@@ -6,8 +8,30 @@ npm install && npm start
 ```
 
 ## ✅ Multer works for me when:
-- Sending POST request via an html form (navigate to http://localhost:9000 to submit form)
+- Sending POST request with body data with CLRF(/r/n) line endings
+- The body data boundary have an extra two `--` e.g.
+  The header with defined boundary
+  `Content-Type: boundary=--123456`
+  Note how the body data has an extra `--` appended
+  ```
+  ----123456
+  Content-Disposition: form-data; name="foo"
+
+  Bar
+  ----123456--
+  ```
 
 ## :x: Multer does not work for me when:
-- Sending data via [Postman](https://www.getpostman.com) and explicitly defining the `Content-Type` header
-- Sending data manually via a node script. With the server running, in another terminal window run `node send-post.js`
+- Sending POST request with body data with LF line endings
+- The body data boundary does not have an extra two `--` e.g.
+  The header with defined boundary
+  `Content-Type: boundary=--123456`
+  ```
+  --123456
+  Content-Disposition: form-data; name="foo"
+
+  Bar
+  --123456--
+  ```
+
+See [send-post.js](https://github.com/jamsinclair/multer-test/blob/master/send-post.js) on how to send a valid multipart/form-data request manually via node
