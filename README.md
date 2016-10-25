@@ -18,7 +18,7 @@ npm install && npm start
     ```
     Content-Type: multipart/form-data; boundary=--123456
     ```
-    Note how the body data boundaries have an extra `--` appended
+    Note how the body data boundaries have an extra `--` prepended
     ```
     ----123456
     Content-Disposition: form-data; name="foo"
@@ -36,7 +36,7 @@ npm install && npm start
     ```
     Content-Type: multipart/form-data; boundary=--123456
     ```
-    Note how the body data boundaries do NOT have an extra `--` appended
+    Note how the body data boundaries do NOT have an extra `--` prepended
     ```
     --123456
     Content-Disposition: form-data; name="foo"
