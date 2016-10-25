@@ -4,8 +4,11 @@ var path = require('path');
 
 // Don't add an encoding type argument
 // This will cause it to return a string. We want the Buffer object of file contents
-// The multipart form data body needs to have CLRF (/r/n) line endings
-var postData = fs.readFileSync(path.resolve(__dirname, './upload.txt'));
+// The multipart form-data body needs to have CLRF (/r/n) line endings
+// You can change the file to use invalid example ones:
+//   - body-with-invalid-boundaries.txt
+//   - body-with-invalid-line-endings.txt
+var bodyData = fs.readFileSync(path.resolve(__dirname, './body.txt'));
 
 var reqOptions = {
   method: 'POST',
@@ -15,7 +18,7 @@ var reqOptions = {
   headers: {
     'Connection': 'keep-alive',
     'Content-Type': 'multipart/form-data; boundary=--123456',
-    'Content-Length': Buffer.byteLength(postData)
+    'Content-Length': Buffer.byteLength(bodyData)
   }
 };
 
@@ -30,5 +33,5 @@ postReq.on('error', function (e) {
   console.log(`Problem with request: ${e.message}`);
 });
 
-postReq.write(postData);
+postReq.write(bodyData);
 postReq.end();
