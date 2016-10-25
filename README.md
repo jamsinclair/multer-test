@@ -1,6 +1,8 @@
 # Problem Now Resolved
 
-Debugging a simple problem I am having with [multer](https://github.com/expressjs/multer) returning empty request data
+This repo was for the purspose of debugging an issue I was having with [multer](https://github.com/expressjs/multer) returning empty request data. See issue https://github.com/expressjs/multer/issues/411
+
+Issue now resolved. See below explaining when your request should work and when it should fail.
 
 To run the simple server:
 ```
