@@ -1,12 +1,11 @@
 var http = require('http');
+var fs = require('fs');
+var path = require('path');
 
-var postData =`
---123456
-Content-Disposition: form-data; name="foo"
-
-Bar
---123456--
-`
+// Don't add an encoding type argument
+// This will cause it to return a string. We want the Buffer object of file contents
+// The multipart form data body needs to have CLRF (/r/n) line endings
+var postData = fs.readFileSync(path.resolve(__dirname, './upload.txt'));
 
 var reqOptions = {
   method: 'POST',
